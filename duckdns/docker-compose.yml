@@ -1,0 +1,13 @@
+version: "3.5"
+services:
+  duckdns:
+    image: lscr.io/linuxserver/duckdns
+    container_name: duckdns
+    environment:
+      - TZ=America/Lima
+      - SUBDOMAINS= #Subdomain
+      - TOKEN= #Token provided by duckdns
+      - LOG_FILE=false
+    volumes:
+      - ./config:/config
+    restart: always

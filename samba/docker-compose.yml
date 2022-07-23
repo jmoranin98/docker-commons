@@ -1,0 +1,15 @@
+version: '3'
+services:
+  samba:
+    image: dperson/samba
+    container_name: samba
+    command: '-s "media;/media;yes;no"'
+    volumes:
+      - ./media:/media # Path for media
+    ports:
+      - 139:139
+      - 445:445
+    environment:
+      - USERID=1000
+      - GROUPID=1000
+    restart: always
